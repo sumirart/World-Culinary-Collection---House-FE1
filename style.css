@@ -1,0 +1,135 @@
+/* VARIABLES */
+:root {
+	--black: #2d2d2d;
+}
+
+/* GENERAL */
+body {
+	color: var(--black);
+	font-family: "Poppins", sans-serif;
+}
+
+.container {
+	width: 95%;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+	font-style: italic;
+	color: var(--black);
+}
+
+/* HEADER */
+.header {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5rem;
+}
+
+h1 {
+	font-size: 1.4rem;
+	margin-bottom: 2rem;
+}
+
+.profile {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.profile__image {
+	border-radius: 50%;
+	width: 70%;
+	margin-bottom: 0.5rem;
+}
+
+.profile__icon {
+	width: 50px;
+	position: absolute;
+	bottom: 35px;
+	left: 25px;
+}
+
+/* .profile__desc {
+} */
+
+/* CULINARY */
+.culinary__title {
+	margin-bottom: 1rem;
+}
+
+.culinary__cards {
+	display: flex;
+	flex-direction: column;
+}
+
+.culinaries__item {
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: 80% 20%;
+	grid-template-rows: auto;
+	gap: 0.25rem;
+	margin-bottom: 3rem;
+	box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0px 12px 24px -12px rgba(0, 0, 0, 0.5);
+	border-radius: 0.625rem;
+	transition: transform 0.2s; /* Animation */
+}
+
+.culinaries__item:hover {
+	transform: scale(
+		1.05
+	); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.culinaries__image {
+	grid-column: 1/3;
+	grid-row: 1;
+	width: 100%;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+}
+
+.culinaries__name {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+.culinaries__rate {
+	grid-column: 2;
+	grid-row: 2;
+	text-align: right;
+}
+
+.culinaries__desc {
+	grid-column: 1/3;
+	grid-row: 3;
+}
+
+.culinaries__link {
+	grid-column: 2;
+	grid-row: 4;
+	text-align: right;
+}
+
+.culinaries__link:hover {
+	cursor: pointer;
+}
+
+@media screen and (min-width: 50rem) {
+	.culinary__cards {
+		flex-direction: row;
+		gap: 1rem;
+	}
+
+	.culinaries__item {
+		grid-template-columns: 60% 40%;
+	}
+}
