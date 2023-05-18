@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Add New Student</title>
+	</head>
+	<body>
+		<h2>Add New Student</h2>
+
+		<form onsubmit="addStudent(event)">
+			<label for="fname">Full Name:</label><br />
+			<input
+				type="text"
+				id="fullname"
+				name="fullname"
+				value=""
+				placeholder="Insert full name.."
+			/><br />
+			<label for="lname">Phone:</label><br />
+			<input
+				type="number"
+				id="phone"
+				name="phone"
+				value=""
+				placeholder="Inser phone number.."
+			/><br /><br />
+			<input type="submit" value="Submit" />
+		</form>
+
+		<hr />
+		<table border="1" id="student-table">
+			<tr>
+				<th>No</th>
+				<th>Fullname</th>
+				<th>Phone</th>
+			</tr>
+		</table>
+		<!-- UNCOMMENT THIS WHEN GIVING EXERCISE -->
+		<!-- <tr>
+            <td>1.</td>
+            <td>Pratama Agung</td>
+            <td>087123123</td>
+        </tr> -->
+
+		<script>
+			let students = [];
+
+			function addStudent(event) {
+				event.preventDefault();
+
+				// TODO: EDIT HERE
+
+				// get value and select table
+				let fullName = event.target.elements[0].value;
+				let phone = event.target.elements[1].value;
+				let number = students.length + 1;
+				let table = document.getElementById("student-table");
+
+				// SLOW TRACK
+				// slowTrack(table, number, fullName, phone);
+
+				// FAST TRACK
+				// fastTrack(table, number, fullName, phone);
+
+				// INNER HTML
+				innerHTML(table, fullName, phone);
+
+				students.push({
+					fullName,
+					phone,
+				});
+			}
+
+			function innerHTML(table, fullName, phone) {
+				let tbody = table.firstElementChild;
+				tbody.innerHTML = `${tbody.innerHTML}
+                <tr>
+				    <td>${students.length + 1}</td>
+				    <td>${fullName}</td>
+				    <td>${phone}</td>
+				</tr>`;
+			}
+
+			function slowTrack(table, number, fullName, phone) {
+				// create tr and td
+				let tr = document.createElement("tr");
+				let td0 = document.createElement("td");
+				let td1 = document.createElement("td");
+				let td2 = document.createElement("td");
+
+				// create text node
+				let numberText = document.createTextNode(number);
+				let fullNameText = document.createTextNode(fullName);
+				let phoneText = document.createTextNode(phone);
+
+				// append each text to node
+				td0.appendChild(numberText);
+				td1.appendChild(fullNameText);
+				td2.appendChild(phoneText);
+
+				// finally append all td to rd
+				tr.appendChild(td0);
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+
+				// append td to table
+				table.appendChild(tr);
+			}
+
+			function fastTrack(table, number, fullName, phone) {
+				let row = table.insertRow(students.length + 1);
+				let cell1 = row.insertCell(0);
+				let cell2 = row.insertCell(1);
+				let cell3 = row.insertCell(2);
+				cell1.innerHTML = number + ".";
+				cell2.innerHTML = fullName;
+				cell3.innerHTML = phone;
+			}
+		</script>
+	</body>
+</html>
