@@ -57,8 +57,9 @@ h1 {
 	left: 25px;
 }
 
-/* .profile__desc {
-} */
+.profile__desc {
+	font-weight: 400 !important;
+}
 
 /* CULINARY */
 .culinary__title {
